@@ -14,7 +14,7 @@ const deleteProduct = async (req, res) => {
     res.send('delete product');
 }
 const uploadImage = async (req, res) => {
-    res.send('upload product');
+    res.send('upload image');
 }
 
 module.exports = {
