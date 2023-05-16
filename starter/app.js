@@ -28,7 +28,7 @@ app.use(fileUpload());
 
 // routes
 app.get('/', (req, res) => {
-    res.send('e-commerce-api')
+    res.send('e-commerce-api') 
 })
 app.get('/api/v1', (req, res) => {
   // console.log(req.cookies);
