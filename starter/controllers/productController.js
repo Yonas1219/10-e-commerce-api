@@ -42,6 +42,15 @@ res.status(StatusCodes.OK).json({msg: 'success! product removed'})
 
 }
 const uploadImage = async (req, res) => {
+    if(!req.files){
+        throw new CustomError.BadRequestError('no file uploaded')
+    }
+    
+    const productImage = req.files.image;
+    if(!productImage.mimetype.startsWith('image')){
+        
+        throw new CustomError.BadRequestError('please uploaded image')
+    }
     res.send('upload image');
 }
 
