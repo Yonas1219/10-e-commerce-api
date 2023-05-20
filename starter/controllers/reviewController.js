@@ -21,7 +21,7 @@ const createReview = async (req, res) => {
 
   if (alreadySubmitted) {
     throw new CustomError.BadRequestError(
-      'Already submitted review for this product'
+      "Already submitted review for this product"
     );
   }
 
@@ -30,10 +30,16 @@ const createReview = async (req, res) => {
   res.status(StatusCodes.CREATED).json({ review });
 };
 const getAllReviews = async (req, res) => {
-  res.send("get all review");
+  const reviews = await Review.find({ reviews, count: reviews.length });
+  res.status(StatusCodes.OK);
 };
 const getSingleReview = async (req, res) => {
-  res.send("get single review");
+  const { id: reviewId } = req.params;
+  const review = await Review.findOne({ _id: reviewId})
+  if(!review) {
+    throw new CustomError.NotFoundError(`no review with id ${reviewId}`);
+  }
+  res.status(StatusCodes.OK).json({review});
 };
 const updateReview = async (req, res) => {
   res.send("update review");
