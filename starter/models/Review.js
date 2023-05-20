@@ -32,4 +32,7 @@ const ReviewSchema = mongoose.Schema(
   { timestamps: true }
 );
 
+// to write one review per product
+ReviewSchema.index({ product: 1, user: 1}, {unique: true});
+
 module.exports = mongoose.model('Review', ReviewSchema);
