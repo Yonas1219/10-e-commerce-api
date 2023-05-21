@@ -41,7 +41,7 @@ const getSingleReview = async (req, res) => {
   }
   res.status(StatusCodes.OK).json({review});
 };
-const updateReview = async (req, res) => {
+const  deleteReview = async (req, res) => {
   const {id: reviewId} = req.params;
   const {rating, title,comment} = req.body;
 
@@ -54,7 +54,7 @@ const updateReview = async (req, res) => {
   res.status(StatusCodes.OK).json({msg: 'review removed successfully'});
 
 };
-const deleteReview = async (req, res) => {
+const updateReview = async (req, res) => {
   const { id: reviewId } = req.params;
   const review = await Review.findOne({ _id: reviewId})
   if(!review) {
