@@ -78,7 +78,7 @@ module.exports = {
   createReview,
   getAllReviews,
   getSingleReview,
-  updateReview,
   deleteReview,
+  updateReview,
   getSingleProductReviews,
 };
