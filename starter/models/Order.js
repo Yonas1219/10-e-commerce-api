@@ -19,6 +19,11 @@ const OrderSchema = mongoose.Schema(
       required: true,
     },
     cartItems: [],
+    status: {
+      type: String,
+      enum:['pending','failed','delivered','canceled'],
+      default: 'pending',
+    },
     user: {
       type: mongoose.Schema.ObjectId,
       ref: "User",
