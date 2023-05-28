@@ -63,8 +63,9 @@ const createOrder = async (req, res) => {
     .json({ order, clientSecrete: order.clientSecret });
 };
 const getAllOrders = async (req, res) => {
-  res.send("get all order");
-};
+    const orders = await Order.find({});
+    res.status(StatusCodes.OK).json({ orders, count: orders.length });
+  };
 const getSingleOrder = async (req, res) => {
   res.send("get Single order");
 };
