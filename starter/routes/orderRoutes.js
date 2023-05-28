@@ -11,4 +11,15 @@ const {
   getCurrentUserOrders,
   createOrder,
   updateOrder,
-} = require('../controllers/orderController');
+} = require("../controllers/orderController");
+
+router
+  .route("/")
+  .post(authenticateUser, createOrder)
+  .get(authenticateUser, authorizePermissions("admin"), getAllOrders);
+
+router
+  .route("/:id")
+  .get(authenticateUser, getSingleOrder)
+  .patch(authenticateUser, updateOrder);
+
